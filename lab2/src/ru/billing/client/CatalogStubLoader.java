@@ -18,7 +18,7 @@ public class CatalogStubLoader implements CatalogLoader{
             catalog.addItem(item2);
         } catch (Exception e) {
             e.printStackTrace();
-            throw new CatalogLoadException();
+            throw new CatalogLoadException("Something was wrong");
         }
     }
 }

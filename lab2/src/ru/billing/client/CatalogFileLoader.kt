@@ -5,7 +5,7 @@ import ru.billing.stocklist.Reader
 import java.io.File
 import java.lang.Exception
 
-class CatalogFileLoader(var filePath: String, var charsetName: String) : CatalogLoader{
+class CatalogFileLoader(var filePath: String, var charsetName: String) : CatalogLoader {
 
     override fun load(catalog: ItemCatalog) {
 //        val items = ArrayList<FoodItem>()
@@ -13,11 +13,12 @@ class CatalogFileLoader(var filePath: String, var charsetName: String) : Catalog
         try {
             val reader = Reader(
                 File(filePath),
-                charsetName)
+                charsetName
+            )
             while (reader.hasNext()) {
                 val line = reader.next()
                 val words = line.split(";".toRegex()).toTypedArray()
-                val item = FoodItem(words[0],words[1].toFloat(), words[2].toShort())
+                val item = FoodItem(words[0], words[1].toFloatOrNull()?:0F, words[2].toShort())
                 catalog.addItem(item)
 //                items.add(item)
             }

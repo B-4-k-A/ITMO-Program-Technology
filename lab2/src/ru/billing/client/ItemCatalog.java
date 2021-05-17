@@ -12,7 +12,7 @@ public class ItemCatalog {
 
     public void addItem(GenericItem item) throws ItemAlreadyExistsException {
         if (catalog.containsValue(item) | ALCatalog.contains(item)) {
-            throw new ItemAlreadyExistsException();
+            throw new ItemAlreadyExistsException("");
         }
         catalog.put(item.getID(), item);
         ALCatalog.add(item);
